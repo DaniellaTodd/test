@@ -1,5 +1,28 @@
 <html>
   <body>
-    
+    <header>We Recommend</header>
+
+    <script>
+  document.addEventListener('DOMContentLoaded',function(){
+    document.getElementById('getProductName').onclick= () => {
+      fetch('data/recommendations.json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('productName').innerHTML=JSON.stringify(data);
+        })
+    };
+  });
+</script>
+
+<h1>Cat Photo Finder</h1>
+<p id="productName">
+
+</p>
+<p>
+  <button id="getProductName">
+    Get Product Name
+  </button>
+</p>
+
   </body>
 </html>
