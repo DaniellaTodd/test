@@ -4,7 +4,7 @@
 
     <script>
   document.addEventListener('DOMContentLoaded',function(){
-    document.getElementById('getProductName') () {
+    document.getElementById('getProductName') () => {
       fetch('data/recommendations.json')
         .then(response => response.json())
         .then(data => {
