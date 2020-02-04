@@ -5,7 +5,7 @@
       document.addEventListener('DOMContentLoaded',function(){
           fetch('data/recommendations.json')
             .then(response => response.json())
-            .then(data.product_search_result.product_name => {
+            .then(data[1] => {
               document.getElementById('productName').innerHTML=JSON.stringify(data);
             })
       });
