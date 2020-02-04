@@ -2,28 +2,23 @@
   <body>
     <header>We Recommend</header>
 
-<div id="myData"></div>
     <script>
-        fetch('data/recommendations.json')
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                appendData(data);
-            })
-            .catch(function (err) {
-                console.log('error: ' + err);
-            });
+  document.addEventListener('DOMContentLoaded',function(){
+    document.getElementById('getProductName')
+      fetch('data/recommendations.json')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('productName').innerHTML=JSON.stringify(data);
+        })
 
-        function appendData(data) {
-            var mainContainer = document.getElementById("myData");
-            for (var i = 0; i < data.length; i++) {
-                var div = document.createElement("div");
-                div.innerHTML = 'Product Name: ' + data[i].product_name;
-                mainContainer.appendChild(div);
-            }
-        }
-    </script>
+  });
+</script>
+
+<h1>Cat Photo Finder</h1>
+<p id="productName">
+
+</p>
+
 
   </body>
 </html>
