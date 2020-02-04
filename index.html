@@ -2,20 +2,28 @@
   <body>
     <header>We Recommend</header>
 
+<div id="myData"></div>
     <script>
-  document.addEventListener('DOMContentLoaded',function(){
-    document.getElementById('getProductName') () => {
-      fetch('data/recommendations.json')
-        .then(response => response.json())
-        .then(data => {
-          document.getElementById('productName').innerHTML=JSON.stringify(data);
-        })
-    };
-  });
-</script>
+        fetch('data/recommendations.json')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                appendData(data);
+            })
+            .catch(function (err) {
+                console.log('error: ' + err);
+            });
 
-<p id="productName">
-</p>
+        function appendData(data) {
+            var mainContainer = document.getElementById("myData");
+            for (var i = 0; i < data.length; i++) {
+                var div = document.createElement("div");
+                div.innerHTML = 'Product Name: ' + data[i].product_name;
+                mainContainer.appendChild(div);
+            }
+        }
+    </script>
 
   </body>
 </html>
