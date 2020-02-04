@@ -6,7 +6,7 @@
           fetch('data/recommendations.json')
             .then(response => response.json())
             .then(data => {
-              document.getElementById('productName').innerHTML=JSON.stringify(data.product_name);
+              document.getElementById('productName').innerHTML=JSON.stringify(data.hits.product_name);
             })
       });
     </script>
